@@ -56,7 +56,7 @@ truffle_deployment() {
   fi
 
   echo "Deploying using truffle - command: truffle migrate --network $network $reset_command $skip_dry_run_command"
-  truffle migrate --network $network $reset $skip_dry_run
+  truffle migrate --network $network $reset_command $skip_dry_run_command
 }
 
 hmy_deployment() {
