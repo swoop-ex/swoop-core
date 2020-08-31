@@ -47,10 +47,6 @@ Example:
 
 `./scripts/abi.sh`
 
-## Additional contracts
-
-This repo also contains contracts for the WONE (Wrapped ONE) token as well as the multicall contracts which Uniswap's UI depends on.
-
 ---
 
 # Uniswap V2
