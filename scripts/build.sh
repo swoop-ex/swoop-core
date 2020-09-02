@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-yarn clean
-yarn compile
+rm -rf build/contracts
+truffle build
