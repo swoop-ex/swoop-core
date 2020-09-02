@@ -12,25 +12,35 @@ const argv = yargs
     .argv;
 
 // Libs
-const Network = require("../network.js");
-const { getAddress } = require("@harmony-js/crypto");
+const Network = require('../network.js');
+const { getAddress } = require('@harmony-js/crypto');
+
+const contracts = [
+  'Migrations',
+  'SafeMath',
+  'Math',
+  'Multicall',
+  'UQ112x112',
+  'UniswapV2HRC20',
+  'UniswapV2Pair',
+  'UniswapV2Factory',
+  'WONE',
+];
 
 // Vars
 const network = new Network(argv.network);
 network.hmy.wallet.addByPrivateKey(network.privateKeys.deployer);
 
 async function deploy() {
-  let uniswapV2ERC20Address = await deployContract('UniswapV2ERC20');
-  let uniswapV2PairAddress = await deployContract('UniswapV2Pair');
-
-  console.log(`   UniswapV2ERC20 address: ${uniswapV2ERC20Address} - ${getAddress(uniswapV2ERC20Address).bech32}`);
-  console.log(`   UniswapV2Pair address: ${uniswapV2PairAddress} - ${getAddress(uniswapV2PairAddress).bech32}`);
-  console.log(`   export NETWORK=${argv.network}; export UNISWAPV2ERC20=${uniswapV2ERC20Address}; export UNISWAPV2PAIR=${uniswapV2PairAddress};`);
-  console.log(`   addresses: {"uniswapV2ERC20": "${uniswapV2ERC20Address}", "uniswapV2Pair": "${uniswapV2PairAddress}"}\n`);
+  for (let i = 0; i < contracts.length; i++) {
+    const contract = contracts[i]
+    const addr = await deployContract(contract)
+    console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`)
+  }
 }
 
 async function deployContract(contractName) {
-  let contractJson = require(`../../build/contracts/${contractName}.json`);
+  let contractJson = require(`../../build/contracts/${contractName}`);
   let contract = network.hmy.contracts.createContract(contractJson.abi);
   contract.wallet.addByPrivateKey(network.privateKeys.deployer);
   //contract.wallet.setSigner(network.privateKeys.deployer);

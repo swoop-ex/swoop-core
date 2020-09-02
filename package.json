@@ -22,9 +22,11 @@
     "node": ">=10"
   },
   "devDependencies": {
+    "@harmony-js/core": "^0.1.50",
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
     "ethereum-waffle": "^2.4.1",
     "ethereumjs-util": "^6.2.0",
     "mocha": "^6.2.2",
@@ -32,10 +34,9 @@
     "rimraf": "^3.0.0",
     "solc": "0.5.16",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.3",
     "tslib": "^2.0.0",
-    "@harmony-js/core": "^0.1.50",
-    "dotenv": "^8.2.0"
+    "typescript": "^3.7.3",
+    "waffle": "0.0.4"
   },
   "scripts": {
     "lint": "yarn prettier ./test/*.ts --check",
@@ -47,5 +48,6 @@
     "test": "mocha",
     "prepublishOnly": "yarn test"
   },
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "dependencies": {}
 }
