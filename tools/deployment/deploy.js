@@ -23,9 +23,9 @@ const contracts = [
   'UQ112x112',
   'UniswapV2HRC20',
   'UniswapV2Pair',
-  'UniswapV2Factory',
   'WONE',
-];
+  'UniswapV2Factory',
+]
 
 // Vars
 const network = new Network(argv.network);
