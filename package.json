@@ -1,8 +1,8 @@
 {
   "name": "@harmony-swoop/core",
   "description": "🎛 Core contracts for the UniswapV2 protocol",
-  "version": "1.0.1",
-  "homepage": "https://uniswap.org",
+  "version": "1.1.1",
+  "homepage": "https://swap.demo.harmony.one",
   "repository": {
     "type": "git",
     "url": "https://github.com/harmony-one/swoop-core"
@@ -42,8 +42,7 @@
     "compile": "waffle .waffle.json",
     "pretest": "yarn compile",
     "test": "mocha",
-    "prepublishOnly": "yarn test",
-    "publish": "npm publish --access public"
+    "prepublishOnly": "yarn test"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {}
