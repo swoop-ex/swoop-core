@@ -7,7 +7,7 @@ import { ecsign } from 'ethereumjs-util'
 
 import { expandTo18Decimals, getApprovalDigest } from './shared/utilities'
 
-import HRC20 from '../build/HRC20.json'
+import HRC20 from '../build/contracts/HRC20.json'
 
 chai.use(solidity)
 

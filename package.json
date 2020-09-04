@@ -1,18 +1,14 @@
 {
-  "name": "@uniswap/v2-core",
+  "name": "@harmony-swoop/core",
   "description": "🎛 Core contracts for the UniswapV2 protocol",
-  "version": "1.0.1",
-  "homepage": "https://uniswap.org",
+  "version": "1.1.1",
+  "homepage": "https://swap.demo.harmony.one",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/uniswap-v2-core"
+    "url": "https://github.com/harmony-one/swoop-core"
   },
   "keywords": [
-    "uniswap",
-    "ethereum",
-    "v2",
-    "core",
-    "uniswap-v2"
+    "swoop"
   ],
   "files": [
     "contracts",
