@@ -4,9 +4,9 @@ import { deployContract } from 'ethereum-waffle'
 
 import { expandTo18Decimals } from './utilities'
 
-import HRC20 from '../../build/HRC20.json'
-import UniswapV2Factory from '../../build/UniswapV2Factory.json'
-import UniswapV2Pair from '../../build/UniswapV2Pair.json'
+import HRC20 from '../../build/contracts/HRC20.json'
+import UniswapV2Factory from '../../build/contracts/UniswapV2Factory.json'
+import UniswapV2Pair from '../../build/contracts/UniswapV2Pair.json'
 
 interface FactoryFixture {
   factory: Contract

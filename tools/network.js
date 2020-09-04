@@ -24,14 +24,14 @@ module.exports = class Network {
         chainType = ChainType.Harmony;
         chainId = ChainID.HmyTestnet;
         break;
-      
+
       case 'mainnet':
         console.log('Using the mainnet network...\n');
         url = "https://api.s0.t.hmny.io";
         chainType = ChainType.Harmony;
         chainId = ChainID.HmyMainnet;
         break;
-      
+
       default:
         console.log('Please enter a valid network - testnet or mainnet.');
         throw new Error('NetworkRequired');
@@ -45,9 +45,15 @@ module.exports = class Network {
       }
     );
 
-    this.privateKeys = {
-      deployer: process.env[`${this.network.toUpperCase()}_PRIVATE_KEY`],
-      tester: process.env[`${this.network.toUpperCase()}_TEST_ACCOUNT_PRIVATE_KEY`],
+    this.accounts = {
+      deployer: {
+        private_key: process.env[`${this.network.toUpperCase()}_PRIVATE_KEY`],
+        address: process.env[`${this.network.toUpperCase()}_ADDRESS`],
+      },
+      tester: {
+        private_key: process.env[`${this.network.toUpperCase()}_TEST_ACCOUNT_PRIVATE_KEY`],
+        address: process.env[`${this.network.toUpperCase()}_TEST_ACCOUNT_ADDRESS`],
+      }
     }
   }
 
@@ -66,7 +72,7 @@ module.exports = class Network {
       case 'deployer', 'tester':
         this.privateKeys[privateKeyType]
         break;
-      
+
       default:
         privateKey = privateKeyType;
     }
