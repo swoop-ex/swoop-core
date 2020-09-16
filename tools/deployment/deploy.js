@@ -20,40 +20,37 @@ const network = new Network(argv.network);
 network.hmy.wallet.addByPrivateKey(network.accounts.deployer.private_key)
 
 const contracts = {
-  'Migrations': [],
-  'SafeMath': [],
-  'Math': [],
-  'Multicall': [],
-  'UQ112x112': [],
-
-  'IUniswapV2Factory': [],
-  'IUniswapV2Callee': [],
-  'IUniswapV2HRC20': [],
-  'IUniswapV2Pair': [],
-
   'UniswapV2HRC20': [],
   'UniswapV2Pair': [],
-  'WONE': [],
-  'UniswapV2Factory': [network.accounts.deployer.address]
+  'UniswapV2Factory': [network.hmy.wallet.signer.address]
 };
 
 async function deploy() {
+  const deployed = {};
+
   for (const contract in contracts) {
     const args = contracts[contract];
     const addr = await deployContract(contract, args);
-    console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`)
+    console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`);
+    deployed[contract] = addr;
   }
+
+  var env = '';
+  for (const contract in deployed) {
+    const addr = deployed[contract];
+    env += `export ${contract.toUpperCase()}=${addr}; `
+  }
+  console.log(`\n    ${env}`);
 }
 
 async function deployContract(contractName, args) {
   let contractJson = require(`../../build/contracts/${contractName}`)
-  // console.log(JSON.stringify(contractJson.abi))
   let contract = network.hmy.contracts.createContract(contractJson.abi)
   contract.wallet.addByPrivateKey(network.accounts.deployer.private_key)
-  // contract.wallet.setSigner(network.network.accounts.deployer.private_key);
+
   let options = {
-    data: '0x' + contractJson.bytecode,
     arguments: args
+    //data: '0x' + contractJson.bytecode,
   };
 
   let response = await contract.methods.contractConstructor(options).send(network.gasOptions())
