@@ -3,7 +3,6 @@
 require("dotenv").config();
 const { Harmony } = require("@harmony-js/core");
 const { ChainID, ChainType } = require("@harmony-js/utils");
-const { getAddressFromPrivateKey } = require('@harmony-js/crypto');
 
 module.exports = class Network {
   constructor(network) {
