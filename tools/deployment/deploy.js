@@ -17,7 +17,7 @@ const { getAddress } = require('@harmony-js/crypto');
 
 // Vars
 const network = new Network(argv.network);
-network.hmy.wallet.addByPrivateKey(network.accounts.deployer.private_key)
+network.hmy.wallet.addByPrivateKey(network.privateKeys.deployer)
 
 const contracts = {
   'UniswapV2HRC20': [],
@@ -40,13 +40,13 @@ async function deploy() {
     const addr = deployed[contract];
     env += `export ${contract.toUpperCase()}=${addr}; `
   }
-  console.log(`\n    ${env}`);
+  console.log(`\n    export NETWORK=${argv.network}; ${env}`);
 }
 
 async function deployContract(contractName, args) {
   let contractJson = require(`../../build/contracts/${contractName}`)
   let contract = network.hmy.contracts.createContract(contractJson.abi)
-  contract.wallet.addByPrivateKey(network.accounts.deployer.private_key)
+  contract.wallet.addByPrivateKey(network.privateKeys.deployer)
 
   let options = {
     arguments: args
