@@ -45,13 +45,9 @@ module.exports = class Network {
       }
     );
 
-    this.accounts = {
-      deployer: {
-        private_key: process.env[`${this.network.toUpperCase()}_PRIVATE_KEY`]
-      },
-      tester: {
-        private_key: process.env[`${this.network.toUpperCase()}_TEST_ACCOUNT_PRIVATE_KEY`]
-      }
+    this.privateKeys = {
+      deployer: process.env[`${this.network.toUpperCase()}_PRIVATE_KEY`],
+      tester: process.env[`${this.network.toUpperCase()}_TEST_ACCOUNT_PRIVATE_KEY`]
     }
   }
 
@@ -67,8 +63,9 @@ module.exports = class Network {
     let privateKey = null;
 
     switch (privateKeyType) {
-      case 'deployer', 'tester':
-        this.privateKeys[privateKeyType]
+      case 'deployer':
+      case 'tester':
+        privateKey = this.privateKeys[privateKeyType]
         break;
 
       default:
