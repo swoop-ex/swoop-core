@@ -49,8 +49,8 @@ async function deployContract(contractName, args) {
   contract.wallet.addByPrivateKey(network.privateKeys.deployer)
 
   let options = {
-    arguments: args
-    //data: '0x' + contractJson.bytecode,
+    arguments: args,
+    data: '0x' + contractJson.bytecode
   };
 
   let response = await contract.methods.contractConstructor(options).send(network.gasOptions())
