@@ -12,41 +12,41 @@ const argv = yargs
     .argv;
 
 // Libs
-const Network = require('../network.js');
-const { getAddress } = require('@harmony-js/crypto');
+const { NetworkEnv } = require("@harmony-swoop/utils")
+const { getAddress } = require('@harmony-js/crypto')
 
 // Vars
-const network = new Network(argv.network);
-network.hmy.wallet.addByPrivateKey(network.privateKeys.deployer)
+const network = new NetworkEnv(argv.network)
+network.client.wallet.addByPrivateKey(network.accounts.deployer.privateKey)
 
 const contracts = {
   'UniswapV2HRC20': [],
   'UniswapV2Pair': [],
-  'UniswapV2Factory': [network.hmy.wallet.signer.address]
+  'UniswapV2Factory': [network.client.wallet.signer.address]
 };
 
 async function deploy() {
-  const deployed = {};
+  const deployed = {}
 
   for (const contract in contracts) {
-    const args = contracts[contract];
+    const args = contracts[contract]
     const addr = await deployContract(contract, args);
-    console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`);
-    deployed[contract] = addr;
+    console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`)
+    deployed[contract] = addr
   }
 
   var env = '';
   for (const contract in deployed) {
-    const addr = deployed[contract];
+    const addr = deployed[contract]
     env += `export ${contract.toUpperCase()}=${addr}; `
   }
-  console.log(`\n    export NETWORK=${argv.network}; ${env}`);
+  console.log(`\n    export NETWORK=${argv.network}; ${env}`)
 }
 
 async function deployContract(contractName, args) {
   let contractJson = require(`../../build/contracts/${contractName}`)
-  let contract = network.hmy.contracts.createContract(contractJson.abi)
-  contract.wallet.addByPrivateKey(network.privateKeys.deployer)
+  let contract = network.client.contracts.createContract(contractJson.abi)
+  contract.wallet.addByPrivateKey(network.accounts.deployer.privateKey)
 
   let options = {
     arguments: args,
