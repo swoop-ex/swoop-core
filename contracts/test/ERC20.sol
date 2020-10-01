@@ -1,8 +1,8 @@
 pragma solidity =0.5.16;
 
-import '../UniswapV2HRC20.sol';
+import '../UniswapV2ERC20.sol';
 
-contract HRC20 is UniswapV2HRC20 {
+contract ERC20 is UniswapV2ERC20 {
     constructor(uint _totalSupply) public {
         _mint(msg.sender, _totalSupply);
     }
