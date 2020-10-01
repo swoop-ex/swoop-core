@@ -40,7 +40,9 @@
     "lint:fix": "yarn prettier ./test/*.ts --write",
     "clean": "rimraf ./build/",
     "precompile": "yarn clean",
+    "postcompile": "yarn abi",
     "compile": "waffle .waffle.json",
+    "abi": "./scripts/abi.sh",
     "pretest": "yarn compile",
     "test": "mocha",
     "prepublishOnly": "yarn test"
