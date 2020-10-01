@@ -2,6 +2,12 @@
 
 # Contracts to extract the ABI for:
 contracts=(
+  ERC20
+  IERC20
+  IUniswapV2Callee
+  IUniswapV2ERC20
+  IUniswapV2Factory
+  IUniswapV2Pair
   UniswapV2ERC20
   UniswapV2Factory
   UniswapV2Pair
