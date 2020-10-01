@@ -7,14 +7,14 @@ import { ecsign } from 'ethereumjs-util'
 
 import { expandTo18Decimals, getApprovalDigest } from './shared/utilities'
 
-import HRC20 from '../build/contracts/HRC20.json'
+import ERC20 from '../build/contracts/ERC20.json'
 
 chai.use(solidity)
 
 const TOTAL_SUPPLY = expandTo18Decimals(10000)
 const TEST_AMOUNT = expandTo18Decimals(10)
 
-describe('UniswapV2HRC20', () => {
+describe('UniswapV2ERC20', () => {
   const provider = new MockProvider({
     hardfork: 'istanbul',
     mnemonic: 'horn horn horn horn horn horn horn horn horn horn horn horn',
@@ -24,7 +24,7 @@ describe('UniswapV2HRC20', () => {
 
   let token: Contract
   beforeEach(async () => {
-    token = await deployContract(wallet, HRC20, [TOTAL_SUPPLY])
+    token = await deployContract(wallet, ERC20, [TOTAL_SUPPLY])
   })
 
   it('name, symbol, decimals, totalSupply, balanceOf, DOMAIN_SEPARATOR, PERMIT_TYPEHASH', async () => {

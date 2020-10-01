@@ -20,7 +20,7 @@ const network = new NetworkEnv(argv.network)
 network.client.wallet.addByPrivateKey(network.accounts.deployer.privateKey)
 
 const contracts = {
-  'UniswapV2HRC20': [],
+  'UniswapV2ERC20': [],
   'UniswapV2Pair': [],
   'UniswapV2Factory': [network.client.wallet.signer.address]
 };
