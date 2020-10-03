@@ -12,8 +12,12 @@ const argv = yargs
     .argv;
 
 // Libs
-const { NetworkEnv } = require("@harmony-swoop/utils")
-const { getAddress } = require('@harmony-js/crypto')
+const { NetworkEnv } = require('@harmony-swoop/utils');
+const { getAddress } = require('@harmony-js/crypto');
+
+const { keccak256 } = require('@ethersproject/solidity');
+const { bytecode } = require('../../build/contracts/UniswapV2Pair.json');
+const COMPUTED_INIT_CODE_HASH = keccak256(['bytes'], [`0x${bytecode}`]);
 
 // Vars
 const network = new NetworkEnv(argv.network)
@@ -34,6 +38,8 @@ async function deploy() {
     console.log(`    Deployed contract ${contract}: ${addr} (${getAddress(addr).bech32})`)
     deployed[contract] = addr
   }
+
+  console.log(`\n    INIT_CODE_HASH: ${COMPUTED_INIT_CODE_HASH} (used to update swoop-sdk and swoop-periphery)`)
 
   var env = '';
   for (const contract in deployed) {
