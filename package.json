@@ -1,7 +1,7 @@
 {
   "name": "@harmony-swoop/core",
   "description": "🎛 Core contracts for the UniswapV2 protocol",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "homepage": "https://swap.demo.harmony.one",
   "repository": {
     "type": "git",
@@ -18,9 +18,9 @@
     "node": ">=10"
   },
   "devDependencies": {
+    "@ethersproject/solidity": "^5.0.2",
     "@harmony-js/core": "^0.1.55",
     "@harmony-swoop/utils": "^1.0.4",
-    "@ethersproject/solidity": "^5.0.2",
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
