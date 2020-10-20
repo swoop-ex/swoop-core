@@ -52,11 +52,11 @@ Example:
 # Uniswap V2
 
 [![Actions Status](https://github.com/harmony-one/swoop-core/workflows/CI/badge.svg)](https://github.com/harmony-one/swoop-core/actions)
-[![Version](https://img.shields.io/npm/v/@harmony-swoop/core)](https://www.npmjs.com/package/@harmony-swoop/core)
+[![Version](https://img.shields.io/npm/v/@swoop-exchange/core)](https://www.npmjs.com/package/@swoop-exchange/core)
 
 In-depth documentation on Uniswap V2 is available at [uniswap.org](https://uniswap.org/docs).
 
-The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/browse/@harmony-swoop/core@latest/).
+The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/browse/@swoop-exchange/core@latest/).
 
 # Local Development
 
