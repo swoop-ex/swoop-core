@@ -51,7 +51,7 @@ Example:
 
 # Uniswap V2
 
-[![Actions Status](https://github.com/harmony-one/swoop-core/workflows/CI/badge.svg)](https://github.com/harmony-one/swoop-core/actions)
+[![Actions Status](https://github.com/swoop-ex/swoop-core/workflows/CI/badge.svg)](https://github.com/swoop-ex/swoop-core/actions)
 [![Version](https://img.shields.io/npm/v/@swoop-exchange/core)](https://www.npmjs.com/package/@swoop-exchange/core)
 
 In-depth documentation on Uniswap V2 is available at [uniswap.org](https://uniswap.org/docs).
