@@ -2,10 +2,10 @@
   "name": "@swoop-exchange/core",
   "description": "🎛 Core contracts for the UniswapV2 protocol",
   "version": "1.0.3",
-  "homepage": "https://swap.demo.harmony.one",
+  "homepage": "https://NEED-CHANGE",
   "repository": {
     "type": "git",
-    "url": "https://github.com/harmony-one/swoop-core"
+    "url": "https://github.com/swoop-ex/swoop-core"
   },
   "keywords": [
     "swoop"
