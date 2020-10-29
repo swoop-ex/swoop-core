@@ -367,10 +367,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@swoop-exchange/utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/utils/-/utils-1.0.0.tgz#4ad569b19bb241bbe9991d3e75827756e3cb755a"
-  integrity sha512-rCN2YF6EmabadnygOGKd+w5fxILWktYvvGmUsyZg8jefbBchHRVa+1s94CIy4KspjkozPReN4X4xAPcKDDNeFg==
+"@swoop-exchange/utils@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/utils/-/utils-1.1.0.tgz#a11cf243e25708dcdd2667d18b074ccc9d617fe2"
+  integrity sha512-2Tgf96lTkyP3z1YhPDDGfQmRSXg52OUMpCYKHjGlF8y+C2vY9w7rQvcHAA06hUFbiOBYL+lLZQ+sjeSXqSqqFA==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
